@@ -1,0 +1,3 @@
+$ npm install three @types/three @react-three/fiber
+npm install three @react-three/fiber @react-three/drei
+npm install --save-dev @types/three
