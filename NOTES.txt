@@ -1,1 +1,21 @@
+juice-3d      --next.js 3d juice website
+my-juice-3d   --vite orangejuice 3d website
+
+
+
+
+
+
+
+
+
+
+
+
 NEW Tanstack AI Library is Amazing! >> https://www.youtube.com/watch?v=quoNVa88XfE&t=13s
+
+Updating NPM 
+$ npm install -g npm@latest
+$ npm -v
+11.7.0
+
