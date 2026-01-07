@@ -1,5 +1,5 @@
 juice-3d      --next.js 3d juice website
-my-juice-3d   --vite orangejuice 3d website
+z-juice-3d   --vite orangejuice 3d website
 
 
 

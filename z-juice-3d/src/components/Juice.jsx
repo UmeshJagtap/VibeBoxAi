@@ -73,6 +73,7 @@ export default function App() {
         </Suspense>
       </Canvas>
 
+      {/* Orange Juice Text Overlay */}
       <div
         style={{
           // position: 'absolute',
