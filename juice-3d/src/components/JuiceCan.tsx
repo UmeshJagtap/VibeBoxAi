@@ -19,6 +19,11 @@ export default function JuiceCan() {
   });
 
   return (
-    <primitive object={scene} ref={canRef} scale={2.5} position={[0, -1, 0]} />
+    <primitive
+      object={scene}
+      ref={canRef}
+      scale={4.5}
+      position={[0, -1.5, 0]}
+    />
   );
 }
