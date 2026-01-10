@@ -1,9 +1,10 @@
 juice-3d      --next.js 3d juice website
-z-juice-3d   --vite orangejuice 3d website
+z_box_app     --react random box app 
+z-juice-3d    --react-vite orangejuice 3d website
 
 
-
-
+Ref :- https://github.com/divyashrma18/skincare/blob/main/vite-project/src/components/Hero.jsx
+       https://github.com/divyashrma18/ben10/blob/main/vite-project/src/components/Hero.jsx
 
 
 
