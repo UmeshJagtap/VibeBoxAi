@@ -99,7 +99,7 @@ export default function HeroSection() {
               className="w-full max-w-md drop-shadow-2xl"
             /> */}
             <Image
-              src="/gardenerGirl.png"
+              src="/gardenerGirl2.png"
               alt="Gardener holding plants"
               width={400}
               height={400}

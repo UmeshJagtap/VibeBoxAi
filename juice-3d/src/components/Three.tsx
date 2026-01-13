@@ -1,9 +1,11 @@
 import React from 'react';
+import Image from 'next/image';
 
 interface FeatureCard {
   title: string;
   description: string;
   imageSrc: string;
+  bgColor: string;
 }
 
 const features: FeatureCard[] = [
@@ -11,16 +13,20 @@ const features: FeatureCard[] = [
     title: 'Plant scanner',
     description: 'The Plants App offers personalized care reminders.',
     imageSrc: '/phone-mockup-1.png', // Replace with your actual asset path
+    bgColor: 'bg-[#f8f8f8]',
   },
   {
     title: 'Track and enjoy',
     description: 'The Plants App offers personalized care reminders.',
     imageSrc: '/phone-mockup-2.png',
+    bgColor: 'bg-red-500',
+    // bgColor: 'bg-gray-100',
   },
   {
     title: 'Browse and explore',
     description: 'The Plants App offers personalized care reminders.',
     imageSrc: '/phone-mockup-3.png',
+    bgColor: 'bg-[#f8f8f8]',
   },
 ];
 
@@ -41,15 +47,18 @@ export default function FeaturesSection() {
 
         {/* Feature Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {features.map((feature, index) => (
+          {features.map((feature, index, bgColor) => (
             <div key={index} className="flex flex-col">
               {/* Phone Mockup Container */}
-              <div className="bg-[#f8f8f8] rounded-[2.5rem] p-8 aspect-[4/5] flex items-end justify-center overflow-hidden mb-6 transition-transform hover:scale-[1.02] duration-300">
-                <div className="relative w-full h-full flex items-end justify-center">
+              <div className="bg-[#f8f8f8] rounded-[2.5rem] aspect-[4/5] flex items-end justify-center overflow-hidden mb-6 transition-transform hover:scale-[1.02] duration-300">
+                {/* <div className={`${bgColor} rounded-[2.5rem] aspect-[4/5] flex items-end justify-center overflow-hidden mb-6 transition-transform hover:scale-[1.02] duration-300`}> */}
+                <div className="relative w-full h-full flex items-between justify-center">
                   {/* Inner Phone Frame Style */}
-                  <img
+                  <Image
                     src={feature.imageSrc}
                     alt={feature.title}
+                    width={100}
+                    height={100}
                     className="w-[100%] h-auto object-contain rounded-t-[2rem] shadow-2xl"
                   />
                 </div>

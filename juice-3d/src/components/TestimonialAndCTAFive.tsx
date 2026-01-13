@@ -1,4 +1,5 @@
 import { Star, Quote } from 'lucide-react';
+import Image from 'next/image';
 
 const TestimonialAndCTA = () => {
   return (
@@ -7,11 +8,18 @@ const TestimonialAndCTA = () => {
         {/* Testimonial */}
         <div className="flex flex-col md:flex-row items-center gap-12 mb-32">
           <div className="relative">
-            <div className="w-64 h-64 md:w-80 md:h-80 bg-[#eef5ee] rounded-full overflow-hidden">
-              <img
+            <div className="w-64 h-64 md:w-96 md:h-96 bg-[#eef5ee] rounded-full overflow-hidden">
+              {/* <img
                 src="/gardenerBoy.png"
                 alt="Gardener"
                 className="w-full h-full object-cover"
+              /> */}
+              <Image
+                src="/gardenerBoy.png"
+                alt="Gardener with beautiful plant"
+                width={400}
+                height={400}
+                className="absolute top-0 left-0 w-full h-full pointer-events-none"
               />
             </div>
             {/* <div className="absolute top-4 left-0 bg-white shadow-lg rounded-full px-4 py-2 flex items-center gap-2">
@@ -56,28 +64,62 @@ const TestimonialAndCTA = () => {
               expert tips, and personalized schedules for thriving greenery.
             </p>
             <div className="flex gap-4">
-              <button className="bg-black text-white px-6 py-3 rounded-xl flex items-center gap-3 hover:bg-gray-900 transition-colors">
-                <img src="/app-store.svg" className="w-6" alt="" />
+              <button className="bg-black text-white px-6 py-3 rounded-4xl flex items-center gap-3 hover:bg-gray-900 transition-colors">
+                {/* <img src="/app-store.svg" className="w-6" alt="" /> */}
+                <Image
+                  src="/app-store.svg"
+                  alt="app-store"
+                  width={40}
+                  height={40}
+                  className="w-6 h-6"
+                  // className="absolute top-0 left-0 w-full h-full pointer-events-none"
+                />
                 <div className="text-left">
                   <p className="text-[10px]">Download on the</p>
                   <p className="font-bold">App Store</p>
                 </div>
               </button>
-              <button className="bg-white text-gray-900 px-6 py-3 rounded-xl flex items-center gap-3 hover:bg-gray-100 transition-colors">
-                <img src="/play-store.svg" className="w-6" alt="" />
+              <button className="bg-white text-gray-900 px-6 py-3 rounded-4xl flex items-center gap-3 hover:bg-gray-100 transition-colors">
+                {/* <img src="/play-store.svg" className="w-6" alt="" /> */}
+                <Image
+                  src="/play-store.svg"
+                  alt="play-store"
+                  width={40}
+                  height={40}
+                  className="w-6 h-6"
+                  // className="absolute top-0 left-0 w-full h-full pointer-events-none"
+                />
                 <div className="text-left">
                   <p className="text-[10px]">Get it on</p>
                   <p className="font-bold">Google Play</p>
                 </div>
               </button>
             </div>
+            <div className="flex gap-4">
+              <Image
+                src="/images/AppStore.png"
+                alt="app-store"
+                width={40}
+                height={40}
+                className="w-40 h-14 rounded-4xl"
+                // className="absolute top-0 left-0 w-full h-full pointer-events-none"
+              />
+              <Image
+                src="/images/PlayStore.png"
+                alt="play-store"
+                width={40}
+                height={40}
+                className="w-44 h-14 rounded-4xl"
+                // className="absolute top-0 left-0 w-full h-full pointer-events-none"
+              />
+            </div>
           </div>
 
           <div className="relative mt-12 md:mt-0 w-64 md:w-80 group-hover:scale-105 transition-transform duration-700">
             <img
-              src="/phone-in-hand.png"
+              src="/mobileInHand.png"
               alt="Hand holding phone"
-              className="drop-shadow-[-20px_20px_50px_rgba(0,0,0,0.3)]"
+              className="rounded-[2.5rem] drop-shadow-[-20px_20px_50px_rgba(0,0,0,0.3)]"
             />
           </div>
 

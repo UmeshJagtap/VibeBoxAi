@@ -1,3 +1,4 @@
+import Image from 'next/image';
 export default function Footer() {
   return (
     /* FOOTER */
@@ -6,7 +7,13 @@ export default function Footer() {
         <div>
           <div className="flex items-center gap-2 text-2xl font-bold text-gray-900 mb-6">
             <div className="w-8 h-8 bg-plant-primary rounded-lg flex items-center justify-center text-white text-base">
-              P
+              <Image
+                src="/plantaLogo.png"
+                alt="Planta Logo"
+                width={34}
+                height={34}
+                className="object-contain rounded-2xl"
+              />
             </div>
             Planta
           </div>
