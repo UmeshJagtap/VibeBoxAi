@@ -9,7 +9,8 @@ const LandingPage = () => {
         <div className="flex items-center gap-2 font-bold text-2xl text-[#2D4A22]">
           {/* <div className="w-8 h-8 bg-green-600 rounded-lg"></div> */}
           <Image
-            src="/plantaLogo.png"
+            // src="/plantaLogo.png"
+            src="https://iili.io/fS7xIsf.png"
             alt="Planta Logo"
             width={32}
             height={32}
@@ -52,7 +53,8 @@ const LandingPage = () => {
         </button> */}
 
         <Image
-          src="/mockupBanner.png"
+          // src="/mockupBanner.png"
+          src="https://iili.io/fS7xKUN.png"
           alt="mobile app showcase"
           width={1400}
           height={800}

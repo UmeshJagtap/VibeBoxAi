@@ -19,7 +19,8 @@ export default function ShowcaseGallery() {
 
         <div>
           <Image
-            src="/mockupGridHighRes.png"
+            // src="/mockupGridHighRes.png"
+            src="https://iili.io/fS7xqJI.png"
             alt="mobile app showcase"
             width={1400}
             height={600}

@@ -12,20 +12,23 @@ const features: FeatureCard[] = [
   {
     title: 'Plant scanner',
     description: 'The Plants App offers personalized care reminders.',
-    imageSrc: '/phone-mockup-1.png', // Replace with your actual asset path
+    // imageSrc: '/phone-mockup-1.png', // Replace with your actual asset path
+    imageSrc: 'https://iili.io/fS7xFlp.png', // Replace with your actual asset path
     bgColor: 'bg-[#f8f8f8]',
   },
   {
     title: 'Track and enjoy',
     description: 'The Plants App offers personalized care reminders.',
-    imageSrc: '/phone-mockup-2.png',
+    // imageSrc: '/phone-mockup-2.png',
+    imageSrc: 'https://iili.io/fS7xxxs.png',
     bgColor: 'bg-red-500',
     // bgColor: 'bg-gray-100',
   },
   {
     title: 'Browse and explore',
     description: 'The Plants App offers personalized care reminders.',
-    imageSrc: '/phone-mockup-3.png',
+    // imageSrc: '/phone-mockup-3.png',
+    imageSrc: 'https://iili.io/fS7xzWG.png',
     bgColor: 'bg-[#f8f8f8]',
   },
 ];
@@ -57,8 +60,8 @@ export default function FeaturesSection() {
                   <Image
                     src={feature.imageSrc}
                     alt={feature.title}
-                    width={100}
-                    height={100}
+                    width={200}
+                    height={200}
                     className="w-[100%] h-auto object-contain rounded-t-[2rem] shadow-2xl"
                   />
                 </div>

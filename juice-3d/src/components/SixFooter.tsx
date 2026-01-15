@@ -8,7 +8,8 @@ export default function Footer() {
           <div className="flex items-center gap-2 text-2xl font-bold text-gray-900 mb-6">
             <div className="w-8 h-8 bg-plant-primary rounded-lg flex items-center justify-center text-white text-base">
               <Image
-                src="/plantaLogo.png"
+                // src="/plantaLogo.png"
+                src="https://iili.io/fS7xIsf.png"
                 alt="Planta Logo"
                 width={34}
                 height={34}
@@ -49,7 +50,7 @@ export default function Footer() {
         </div>
       </div>
       <div className="max-w-7xl mx-auto px-6 mt-16 pt-8 border-t flex flex-col md:flex-row justify-between text-xs text-gray-400">
-        <p>Copyright 2022. All Rights Reserved</p>
+        <p>Copyright 2026. All Rights Reserved</p>
         <div className="flex gap-6 mt-4 md:mt-0">
           <span>Privacy Policy</span>
           <span>Terms and Use</span>

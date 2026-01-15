@@ -4,7 +4,7 @@ import Image from 'next/image';
 const TestimonialAndCTA = () => {
   return (
     <section className="py-24 px-6 bg-white overflow-hidden">
-      <div className="max-w-6xl mx-auto">
+      <div className="max-w-7xl mx-auto">
         {/* Testimonial */}
         <div className="flex flex-col md:flex-row items-center gap-12 mb-32">
           <div className="relative">
@@ -15,11 +15,12 @@ const TestimonialAndCTA = () => {
                 className="w-full h-full object-cover"
               /> */}
               <Image
-                src="/gardenerBoy.png"
+                // src="/gardenerBoy.png"
+                src="https://iili.io/fS5zIR9.png"
                 alt="Gardener with beautiful plant"
                 width={400}
                 height={400}
-                className="absolute top-0 left-0 w-full h-full pointer-events-none"
+                className="absolute top-0 left-0 w-full h-full pointer-events-none object-cover"
               />
             </div>
             {/* <div className="absolute top-4 left-0 bg-white shadow-lg rounded-full px-4 py-2 flex items-center gap-2">
@@ -67,11 +68,12 @@ const TestimonialAndCTA = () => {
               <button className="bg-black text-white px-6 py-3 rounded-4xl flex items-center gap-3 hover:bg-gray-900 transition-colors">
                 {/* <img src="/app-store.svg" className="w-6" alt="" /> */}
                 <Image
-                  src="/app-store.svg"
+                  // src="/appleLogo.png"
+                  src="https://iili.io/fSl6orl.png"
                   alt="app-store"
                   width={40}
                   height={40}
-                  className="w-6 h-6"
+                  className="w-8 h-8"
                   // className="absolute top-0 left-0 w-full h-full pointer-events-none"
                 />
                 <div className="text-left">
@@ -82,11 +84,12 @@ const TestimonialAndCTA = () => {
               <button className="bg-white text-gray-900 px-6 py-3 rounded-4xl flex items-center gap-3 hover:bg-gray-100 transition-colors">
                 {/* <img src="/play-store.svg" className="w-6" alt="" /> */}
                 <Image
-                  src="/play-store.svg"
+                  // src="/playStoreLogo.png"
+                  src="https://iili.io/fSl6z22.jpg"
                   alt="play-store"
                   width={40}
                   height={40}
-                  className="w-6 h-6"
+                  className="w-8 h-8 rounded-4xl"
                   // className="absolute top-0 left-0 w-full h-full pointer-events-none"
                 />
                 <div className="text-left">
@@ -95,36 +98,21 @@ const TestimonialAndCTA = () => {
                 </div>
               </button>
             </div>
-            <div className="flex gap-4">
-              <Image
-                src="/images/AppStore.png"
-                alt="app-store"
-                width={40}
-                height={40}
-                className="w-40 h-14 rounded-4xl"
-                // className="absolute top-0 left-0 w-full h-full pointer-events-none"
-              />
-              <Image
-                src="/images/PlayStore.png"
-                alt="play-store"
-                width={40}
-                height={40}
-                className="w-44 h-14 rounded-4xl"
-                // className="absolute top-0 left-0 w-full h-full pointer-events-none"
-              />
-            </div>
           </div>
 
           <div className="relative mt-12 md:mt-0 w-64 md:w-80 group-hover:scale-105 transition-transform duration-700">
-            <img
-              src="/mobileInHand.png"
+            <Image
+              // src="/mobileInHand.png"
+              src="https://iili.io/fS7uAQe.png"
               alt="Hand holding phone"
+              width={600}
+              height={600}
               className="rounded-[2.5rem] drop-shadow-[-20px_20px_50px_rgba(0,0,0,0.3)]"
             />
           </div>
 
           {/* Decorative Leaf */}
-          <div className="absolute bottom-0 right-0 text-6xl opacity-20 -rotate-12 translate-y-1/2">
+          <div className="absolute bottom-0 right-0 text-8xl opacity-20 -rotate-12 translate-y-1/2">
             🌿
           </div>
         </div>
