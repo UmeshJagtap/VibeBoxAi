@@ -62,7 +62,7 @@ export default function HeroSection() {
   ];
 
   return (
-    <section className="min-h-screen bg-[#f4f9f4] px-6 py-12 md:px-24 flex flex-col items-center">
+    <section className="bg-[#f4f9f4] px-6 py-12 md:px-24 flex flex-col items-center">
       {/* Header Text */}
       <div className="text-center max-w-2xl mb-16">
         <h1 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-4">
@@ -117,3 +117,82 @@ export default function HeroSection() {
     </section>
   );
 }
+
+// {/* Avatar Testimonials Section */}
+//       <section className="bg-gray-100 py-16 px-10">
+//         <div className="max-w-6xl mx-auto text-center">
+//           <h2 className="text-3xl font-bold text-[#2D4A22] mb-8">
+//             What Our Users Say
+//           </h2>
+//           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+//             {/* Testimonial 1 */}
+//             <div className="bg-white p-6 rounded-4xl shadow-md">
+//               <div className="flex items-center gap-4 mb-4">
+//                 <div className="w-16 h-16 rounded-full bg-gray-300 overflow-hidden">
+//                   <Image
+//                     src="https://iili.io/fS7xIsf.png"
+//                     alt="User Avatar"
+//                     width={64}
+//                     height={64}
+//                     className="object-cover"
+//                   />
+//                 </div>
+//                 <div className="text-left">
+//                   <h3 className="text-lg font-bold">Jane Doe</h3>
+//                   <p className="text-sm text-gray-500">Plant Enthusiast</p>
+//                 </div>
+//               </div>
+//               <p className="text-gray-600 text-sm leading-relaxed">
+//                 "Planta has completely transformed the way I take care of my
+//                 plants. I love how easy it is to keep track of everything!"
+//               </p>
+//             </div>
+
+//             {/* Testimonial 2 */}
+//             <div className="bg-white p-6 rounded-4xl shadow-md">
+//               <div className="flex items-center gap-4 mb-4">
+//                 <div className="w-16 h-16 rounded-full bg-gray-300 overflow-hidden">
+//                   <Image
+//                     src="https://iili.io/fS7xIsf.png"
+//                     alt="User Avatar"
+//                     width={64}
+//                     height={64}
+//                     className="object-cover"
+//                   />
+//                 </div>
+//                 <div className="text-left">
+//                   <h3 className="text-lg font-bold">John Smith</h3>
+//                   <p className="text-sm text-gray-500">Gardening Hobbyist</p>
+//                 </div>
+//               </div>
+//               <p className="text-gray-600 text-sm leading-relaxed">
+//                 "Thanks to Planta, my garden has never looked better. The app is
+//                 a lifesaver for plant care!"
+//               </p>
+//             </div>
+
+//             {/* Testimonial 3 */}
+//             <div className="bg-white p-6 rounded-4xl shadow-md">
+//               <div className="flex items-center gap-4 mb-4">
+//                 <div className="w-16 h-16 rounded-full bg-gray-300 overflow-hidden">
+//                   <Image
+//                     src="https://iili.io/fS7xIsf.png"
+//                     alt="User Avatar"
+//                     width={64}
+//                     height={64}
+//                     className="object-cover"
+//                   />
+//                 </div>
+//                 <div className="text-left">
+//                   <h3 className="text-lg font-bold">Emily Johnson</h3>
+//                   <p className="text-sm text-gray-500">Nature Lover</p>
+//                 </div>
+//               </div>
+//               <p className="text-gray-600 text-sm leading-relaxed">
+//                 "I never knew taking care of plants could be this easy and fun.
+//                 Highly recommend Planta to everyone!"
+//               </p>
+//             </div>
+//           </div>
+//         </div>
+//       </section>
