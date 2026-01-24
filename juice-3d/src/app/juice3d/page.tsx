@@ -4,7 +4,7 @@ import { Environment, ContactShadows } from '@react-three/drei';
 import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import JuiceCan from '../components/JuiceCan';
+import JuiceCan from '../../components/JuiceCan';
 
 gsap.registerPlugin(ScrollTrigger);
 
