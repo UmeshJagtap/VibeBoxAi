@@ -19,8 +19,10 @@ const features: FeatureCard[] = [
   {
     title: 'Track and enjoy',
     description: 'The Plants App offers personalized care reminders.',
-    // imageSrc: '/phone-mockup-2.png',
-    imageSrc: 'https://iili.io/fS7xxxs.png',
+    // imageSrc: '/phone-mockup-2aaa.png',
+    // imageSrc: 'https://iili.io/fS7xxxs.png',
+    imageSrc: 'https://iili.io/f6zbODg.png',
+
     bgColor: 'bg-red-500',
     // bgColor: 'bg-gray-100',
   },
@@ -53,7 +55,7 @@ export default function FeaturesSection() {
           {features.map((feature, index, bgColor) => (
             <div key={index} className="flex flex-col">
               {/* Phone Mockup Container */}
-              <div className="bg-[#f8f8f8] rounded-[2.5rem] aspect-[4/5] flex items-end justify-center overflow-hidden mb-6 transition-transform hover:scale-[1.02] duration-300">
+              <div className="bg-[#f8f8f8] rounded-[2.5rem] aspect-4/5 flex items-end justify-center overflow-hidden mb-6 transition-transform hover:scale-[1.02] duration-300">
                 {/* <div className={`${bgColor} rounded-[2.5rem] aspect-[4/5] flex items-end justify-center overflow-hidden mb-6 transition-transform hover:scale-[1.02] duration-300`}> */}
                 <div className="relative w-full h-full flex items-between justify-center">
                   {/* Inner Phone Frame Style */}
@@ -62,7 +64,7 @@ export default function FeaturesSection() {
                     alt={feature.title}
                     width={200}
                     height={200}
-                    className="w-[100%] h-auto object-contain rounded-t-[2rem] shadow-2xl"
+                    className="w-full h-auto object-contain rounded-t-4xl shadow-2xl"
                   />
                 </div>
               </div>

@@ -58,10 +58,11 @@ const LandingPage = () => {
           alt="mobile app showcase"
           width={1400}
           height={800}
-          className="rounded-4xl mx-auto mb-6"
+          // className="rounded-4xl mx-auto mb-6"
+          className="rounded-4xl mx-auto mb-6 bg-[url('https://iili.io/fS7xKUN.png')] h-full w-full bg-cover bg-center"
         />
 
-        {/* Phone Mockups Placeholder */}
+        {/* Phone Mockups --3Placeholders */}
         {/* <div className="mt-16 flex justify-center items-end gap-4 md:gap-8 overflow-hidden"> */}
         {/* <div className="w-64 h-112.5 bg-white rounded-[3rem] border-[8px] border-black shadow-2xl transform -rotate-3 translate-y-10"> */}
         {/* Add content for left phone here */}
@@ -173,11 +174,11 @@ const LandingPage = () => {
                 </div>
               </div>
             </div>
-            {/* <div className="mt-10 h-px bg-gray-800 w-full" /> */}
-            {/* <div className="mt-6 flex justify-between text-xs text-gray-400">
+            <div className="mt-10 h-px bg-gray-800 w-full" />
+            <div className="mt-6 flex justify-between text-xs text-gray-400">
               <p>Join 100K+ users growing with the Planta App!</p>
               <p>Download the Planta App and green collection today.</p>
-            </div> */}
+            </div>
           </div>
 
           {/* Rating Card */}
