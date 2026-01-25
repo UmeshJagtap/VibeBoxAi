@@ -11,10 +11,21 @@ export default function JuiceCan() {
   //   const { scene } = useGLTF('/models/cylinderengine.gltf');
   const canRef = useRef<THREE.Group>(null);
 
-  // Subtle constant rotation for realism
+  // Subtle constant rotation + Diagonal movement
   useFrame((state) => {
     if (canRef.current) {
-      canRef.current.rotation.y += 0.005;
+      canRef.current.rotation.y += 0.010;
+      canRef.current.rotation.x += 0.008;
+
+      // Move diagonally from top-right to bottom-left
+      canRef.current.position.x -= 0.05;
+      canRef.current.position.y -= 0.05;
+
+      // Reset to top-right when it goes off screen
+      if (canRef.current.position.y < -10) {
+        canRef.current.position.x = 10;
+        canRef.current.position.y = 10;
+      }
     }
   });
 
@@ -22,8 +33,8 @@ export default function JuiceCan() {
     <primitive
       object={scene}
       ref={canRef}
-      scale={4.5}
-      position={[0, -1.5, 0]}
+      scale={10}
+      position={[10, 10, 0]}
     />
   );
 }
