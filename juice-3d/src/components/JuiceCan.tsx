@@ -22,10 +22,10 @@ export default function JuiceCan() {
       canRef.current.position.y -= 0.05;
 
       // Reset to top-right when it goes off screen
-      if (canRef.current.position.y < -10) {
-        canRef.current.position.x = 10;
-        canRef.current.position.y = 10;
-      }
+      // if (canRef.current.position.y < -10) {
+      //   canRef.current.position.x = 10;
+      //   canRef.current.position.y = 10;
+      // }
     }
   });
 

@@ -6,18 +6,12 @@ juice-3d      --next.js 3d juice website
 z_box_app     --react random box app 
 z-juice-3d    --react-vite orangejuice 3d website
 
+interview-ai  --mern interview app  >> https://www.youtube.com/watch?v=2SyK8CrFXuY
+
 
 Ref :- https://github.com/divyashrma18/skincare/blob/main/vite-project/src/components/Hero.jsx
        https://github.com/divyashrma18/ben10/blob/main/vite-project/src/components/Hero.jsx
 
-
-
-
-
-
-
-
-NEW Tanstack AI Library is Amazing! >> https://www.youtube.com/watch?v=quoNVa88XfE&t=13s
 
 Updating NPM 
 $ npm install -g npm@latest
@@ -27,19 +21,40 @@ $ npm -v
 // https://demos.freehtml5.co/moon/#portfolio
 
 DOOO IT !!!!!  ---------------<<<
-Move this to tailwind notes
-class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-12 border-b border-gray-800 pb-12"
-max-w-7xl mx-auto px-6 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-gray-600
-++
-Add splash cursor to portfolio
-https://reactbits.dev/animations/splash-cursor
-npx shadcn@latest add @react-bits/SplashCursor-TS-CSS
+
+NEW Tanstack AI Library is Amazing! >> https://www.youtube.com/watch?v=quoNVa88XfE&t=13s
+
+
+A Next.js Scroll Animation That Earns Its PIN (ScrollTrigger Done Right)
+https://www.youtube.com/watch?v=Dt0LpwQn0eo
+
 ++
 Checkout Naturalgreen products website
 https://wingreensworld.com/?_gl=1*f0f29q*_up*MQ..*_gs*MQ..&gclid=Cj0KCQiAm9fLBhCQARIsAJoNOcu8g_PgMF6kKWVDiTYpa4Ttnzb126jyXSHx3KPGUrSxiefZ-lqPChQaAuT3EALw_wcB&gbraid=0AAAAAoKa7L7PXm9Lj8YCpZiRc2O9b-osI 
 
+++
+Filter, use it for Users filter
+https://stackblitz.com/edit/react-ts-9a9n67?file=App.tsx
 
-Advanced React ++
+++
+Text Editor, implement it on Portfolio website
+Day-63/100 Build Custom Text File Editor || React NextJS Tutorial for Beginners in Hindi
+https://www.youtube.com/watch?v=9kuzEVk_7WI 
+
+++
+React Performance Optimizations: How to Fix a Slow App
+https://www.youtube.com/watch?v=AZ9i3eoyrnE
+
+++
+Revieve outlook
+umeshjagtap.7866@outlook.com
+
+
+
+//--------------------------------------------------------------------------------------
+      Advanced REACT
+//--------------------------------------------------------------------------------------
+Advanced React <-----+++++
 1. React Server components
    -- Run components on the server to send pre-rendered HTML, reducing client-side JS and boosting performance, Ideal for data-heavy apps like blogs or e-commerce!
    
@@ -172,3 +187,37 @@ Advanced React ++
    New in React 19 (2025).
    Simplifies optimistic updates.
    Ideal for social media apps.
+
+
+
+Github Workflow <-----+++++
+on:
+  workflow_dispatch:
+jobs:
+  use_api_via_script:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repo content
+        uses: actions/checkout@v5
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '16.17.0'
+          cache: npm
+
+      - name: Install dependencies
+        run: npm install octokit
+
+      - name: Generate token
+        id: generate-token
+        uses: actions/create-github-app-token@v2
+        with:
+          app-id: ${{ vars.APP_ID }}
+          private-key: ${{ secrets.APP_PEM }}
+
+      - name: Run script
+        run: |
+          node .github/actions-scripts/use-the-api.mjs
+        env:
+          TOKEN: ${{ steps.generate-token.outputs.token }}
