@@ -1,0 +1,5 @@
+SKILLS :- 
+Note > Skill burns through the token very fast. Only turn the skill you want to use.
+
+Gen AI + Full Stack Web Development Project | React, Node, JWT, Gemini
+https://www.youtube.com/watch?v=zG3hNL08Dro
