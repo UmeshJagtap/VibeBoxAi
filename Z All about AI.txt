@@ -54,3 +54,335 @@ DummyProducts API
 >> https://dummyjson.com/products?offset=0&limit=50
 
 
+---------------------------------------------------------------- Docker Notes
+
+
+Advanced Backend + AI Full Course 🚀 | Docker, Redis, System Design, AWS, RAG, LangChain
+https://www.youtube.com/watch?v=_itqpLVS660
+
+Advanced Backend + AI Full Course 🚀 | Part 2 | LangChain, LangGraph, RAG, Vector DB, AWS & CI/CD
+https://www.youtube.com/watch?v=lweDf3_q-sk
+
+Docker 
+Problem it solves : Code not workig on my machine.
+
+Images and Containers
+
+Docker Image
+Image ek blueprint/template hota hai
+Image ke andar hota hai:
+> app code
+> node
+> packages
+> dependencies
+> configs
+
+Docker Desktop   --Windows App
+Download Docker Desktop  >>  amd64 for windows
+
+wsl update
+
+CMD :
+docker run -it ubuntu
+-it >> interactive tty
+
+ls 
+mkdir
+
+All official Images available >> hub.docker.com
+
+docker pull node:current-alpine3.23
+docker run -it node:current-alpine3.23
+
+Simple Docker Commands 
+docker ps -a
+docker images
+docker stop 91e45
+docker start 91e45
+docker rm container_id
+docker exec it kind_perlman bash
+root@3c033ab:/# ls
+root@3c033ab:/# node --version
+root@3c033ab:/# mkdir hello
+
+Note : We need to stop the container to remove it.
+docker start kind_perlman
+docker rm kind_perlman 
+	Error response from daemon : Cannot remove container
+docker stop kind_perlman
+docker rm kind_perlman
+
+How docker works
+1. User command deta hai
+2. Docker CLI command receive karta hai
+3. CLI request daemon ko bhejta hai
+4. Daemon image check karta hai
+5. Missing image Docker Hub se download hoti hai
+6. Container create hota hai
+7. Application run hoti hai
+
+DOCKER ARCHITECTURE
+CLIENT <-> HOST aka DAEMON <-> REGISTRY
+
+How to Dockerize Node Application -
+[Docker File] (Build) -> [Docker Image] (Run) -> [Docker Container]
+
+Creating a simple Node App
+New Folder -> Advanced Backend Course
+New Folder -> level1
+Terminal -> cd level1
+npm init 
+package.json is created
+
+npm i express  >> node_modules are installed
+In package.json -> "type": "module",
+
+Create .env file
+
+-------------------------------------vv
+index.js
+import express from "express"
+import dotenv from 'dotenv"
+dotenv.config()
+
+const port = process.env.PORT || 5000
+
+const app = express()
+
+app.get("/", (req, res) => {
+    return res.status(200).json({message: "hello from docker 2026"
+})
+
+app.listen(port, () => {
+    console.log(`server started ${port}`)
+)}
+-------------------------------------AA
+
+Terminal -> node index.js
+
+Create New File -> Dockerfile
+vsCode > Extensions > Container Tools -Microsoft
+
+HOW TO DOCKERIZE NODE APPLICATION
+[docker file] --docker build -t test . --> [docker image] --> [container]
+# --docker build -t test .  >> "." is path here 
+OS base Image
+package.json
+npm install
+copy index.js
+copy models/controllers
+node index.js
+
+
+-------------------------------------vv
+Dockerfile
+FROM node
+
+WORKDIR /app
+
+#--COPY source dest--
+COPY index.js index.js
+COPY package.json package.json
+COPY package-lock.json package-lock.json
+
+RUN npm install
+
+CMD ["node", "index.js"]
+-------------------------------------AA
+
+Build Image
+Terminal > docker build -t test-image .
+docker run -it test-image
+
+docker exec -it frosty_panini bash  --to run commands
+ls
+app boot etc  lib   media opt  root sbin sys usr
+bin dev  home lib64 mnt   proc run  srv  tmp var
+cd app
+ls
+index.js node_modules package-lock.json package.json
+cat index.js
+
+Docker build is cached on first run
+Also if any changes are done in Docker File 
+> It starts build from the changed part
+
+-------------------------------------vv
+Dockerfile (Optimized)
+FROM node
+
+WORKDIR /app
+
+#--COPY source dest--
+COPY package*.json .
+
+RUN npm install
+
+COPY . .
+
+CMD ["node", "index.js"]
+-------------------------------------AA
+
+docker exec -it cranky_shtern bash
+ls
+Dockerfile index.js node_modules      package.json
+db.js      models   package-lock.json socket.js
+
+# If we notice now Dockerfile and node_modules are getting copied 
+# To handle this we have .dockerignore
+
+Create file > .dockerignore
+Dockerfile
+node_modules
+
+docker exec -it zen_grothendiek bash
+ls
+db.js  index.js  models  node_modules  package-lock.json  package.json  socket.js
+
+cat index.js  #We can see our code
+
+Browser >> localhost:5000
+This site can't be reached
+
+vsCode >> THUNDER CLIENT 
+No output
+
+Why this happens :
+docker container  ---> isolated
+
+			https://localhost:8000
+|---------------------------------|
+|                  local-machine  |
+| |------------------------------||
+| |[test-image  container  5000] ||
+| |------------------------------||
+
+So we need to take care of PORT Mapping
+
+Port Mapping -
+Port Mapping ka use:
+	container ke andar chal rahi application ko
+	outside/browser se access karne ke liye hota hai
+
+docker run -it -p 8000:5000    .. aka local-port : container-port
+
+https://localhost:8000  >> -- Output -- { "message":"hello from docker 26" }
+
+docker run -it -e PORT=7000 -p 8000:7000 test-image   
+.. aka -e denotes environment variable
+
+!!!!! Port Mapping - !!!!!
+Syntax 
+Bash
+docker run -p host_port:container_port image_name
+Bash 
+docker run -p 8000:5000 my app
+
+
+!!!!! Add Environment Variable in run time - !!!!!
+Bash
+docker run -e PORT=8000 -p 8000:8000 myapp
+
+
+!!!!!  How to Push  custom Image on Docker Hub: !!!!!
+Bash
+docker push username/image-name
+
+Docker Hub  >>  SignUp  >> virtualcode27
+Check Repositories
+
+Terminal >
+docker login
+Authenticating with existing credentials... [Username: virtualcode27]
+Login Succeeded
+
+docker build -t virtualcode27/test-image .
+=> exporting to image
+=> => exporting layers
+=> => unpacking to docker.io/virtualcode2/test-image:latest
+View build details: docker-desktop://dashboard/build/desktop-linux/desktop-linux/03qmi...
+
+docker push virtualcode27/test-image
+b53089: Mounted from virtualcode27/first-app
+919b1f: Mounted from library/node
+742bb7: Pushed
+latest: digest: sha2566:11fb366... size:856
+
+Docker Hub >> Repositories  -- virtualcode/test-image
+
+CMD : docker run -it -e PORT=8000 -p 8000:8000 virtualcode/test-image
+Unable to find Imagge
+latest: Pulling from virtualcode27/test-image
+3e331d: Pull complete
+45doe6: Download complete
+Digest: sha2566:11fb366...
+Status: Downloaded newer image from virtualcode27/test-image:latest
+^ injected env (0) from .env  
+server started 8000
+
+localhost:8000
+{"message":"hello from docker 27"}
+
+
+!!!!! Docker Compose - !!!!!
+Docker Compose is a tool used to run multiple Docker container
+together using one file and one command
+
+Main File
+Docker Compose ki file:
+	docker-compose.yml
+
+Ref Problem:
+CMD >> docker run -it ubuntu
+New CMD >> docker run -it node
+So to run multiple containers we can use Docker compose
+Eg: FrontEnd in one container and BackEnd in other.
+
+Creating New Project
+[vsCode] >> Create new Folder >> phase2 
+>> phase2 > backend  & frontend
+
+>> backend 
+Terminal : npm init
+package.json > "type": "module"
++ index.js ...copy from previos code file  
+{message:hello from docker phase 2"}
+npm i express dotenv 
++ Dockerfile ...copy from previos code file
++ .dockerignore 
+ node_modules
+ Dockerfile
+
+>> frontend  ..aka level1\phase2\frontend
+Terminal:
+npm create vite@latest
+-> Local: http://localhost:5173/
++ Dockerfile
++ .dockerignore 
+node_modules
+Dockerfile
+
+>> phase2 
++ docker-compose.yml
+services:
+ backend:
+   build: ./backend    ..aka it will use Dockerfile in [backend]
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
