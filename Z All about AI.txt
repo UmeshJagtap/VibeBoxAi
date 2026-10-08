@@ -358,21 +358,70 @@ Terminal:
 npm create vite@latest
 -> Local: http://localhost:5173/
 + Dockerfile
+
 + .dockerignore 
 node_modules
-Dockerfile
-
+Dockerfile ...copy from previos code file
+ Modify CMD ["npm", "run", "dev"]
 >> phase2 
 + docker-compose.yml
 services:
+
  backend:
-   build: ./backend    ..aka it will use Dockerfile in [backend]
-  
+  build: ./backend    ..aka it will use Dockerfile in [backend]
+  environment:
+   - PORT=7000
+  env_file:
+   - .env
+  ports:
+   - 8000:7000        ..localMcPort:dockerContainerPort
 
 
+ frontend:
+  build: ./frontend   ..aka it will use Dockerfile in [frontend]
+  ports:
+   - 5173:5173        ..localMcPort:dockerContainerPort
+   
+ redis:
+  images: redis
+  ports:
+   - 6379:6379
+
+>> level1\phase2
+Terminal:
+docker compose up
+
+-Image redis Pulling
+redis-1    | 1:M 03 Jun 2026 06:36:51.602 * Server initialized 
+frontend-1 | Vite v8.0.16 reday in 232 ms 
+
+Docker Desktop
+  Name		 ContainerID	Image	      Ports
+o phase2
+o   redis-1	 66345		redis         6379:6379
+o   backend-1    55440          phase2-back.. 8000:5000
+o   frontend-1   a5957          phase2-front. 5173:5173
+
+https://localhost:5173
+Getting started
+Edit src/App.jsx and save to test HMR
+
+>> level1\phase2
+Terminal:
+docker compose down
+[+] down 4/4
+Container phase2-backend-1  Removed
+Container phase2-redis-1    Removed
+Container phase2-frontend-1 Removed
+Network phase2-default      Removed
+
+If changes are done in environments
+>> level1\phase2
+Terminal:
+docker compose up --build
 
 
-
+3:02:01
 
 
 
