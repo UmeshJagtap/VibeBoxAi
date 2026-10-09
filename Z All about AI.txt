@@ -1,3 +1,5 @@
+AIR LLM  --https://github.com/lyogavin/airllm
+AirLLM dramatically reduces inference memory usage, letting 70B large language models run on a single 4GB GPU card
 
 
 FREE 32GB VRAM Server for Running AI Models Locally
@@ -54,6 +56,21 @@ DummyProducts API
 >> https://dummyjson.com/products?offset=0&limit=50
 
 
+Node JS Full Course 2026 | Complete Backend Development Course | 17 Hours
+https://www.youtube.com/watch?v=XdH3gpcwnoA
+
+Node JS Microservices Full Course 2026 | Neon Postgres, Docker, Kafka
+https://www.youtube.com/watch?v=1341ei0Y8Rk
+
+Full Stack AI DevOps Course + Real Projects 🚀 | Docker + Kubernetes + CI/CD + Terraform | Job Ready   
+https://www.youtube.com/watch?v=Kb-sw00KJ10
+
+Complete End To End AI Forward Deployed Engineer(FDE) Project Implementation
+https://www.youtube.com/watch?v=FSZhPDzESPU
+
+Generative AI Full Course 2026 | LLMs, RAG, AI Agents & Projects | Sagar Chouksey
+https://www.youtube.com/watch?v=3iFMc6ELt7k
+
 ---------------------------------------------------------------- Docker Notes
 
 
@@ -62,6 +79,14 @@ https://www.youtube.com/watch?v=_itqpLVS660
 
 Advanced Backend + AI Full Course 🚀 | Part 2 | LangChain, LangGraph, RAG, Vector DB, AWS & CI/CD
 https://www.youtube.com/watch?v=lweDf3_q-sk
+
+🐳 Docker
+• Images & Containers
+• Dockerizing Node.js Applications
+• Port Mapping
+• Docker Compose
+• Docker Networking
+• Docker Volumes
 
 Docker 
 Problem it solves : Code not workig on my machine.
@@ -372,7 +397,7 @@ services:
   environment:
    - PORT=7000
   env_file:
-   - .env
+   - ./backend/.env
   ports:
    - 8000:7000        ..localMcPort:dockerContainerPort
 
@@ -420,10 +445,252 @@ If changes are done in environments
 Terminal:
 docker compose up --build
 
+Docker Compose: -------------------- in short
+Docker Compose is a tool to run multiple Docker Containers
+together using one file and one command.
 
-3:02:01
+Main File
+Docker Compose ki file:
+  docker-compose.yml
+
+Docker Compose:
+services:
+ web:
+  build:
+  ports:
+   - "${APP_PORT}:5000"
+  environment:
+   - REDIS_HOST=${REDIS_HOST}
+   - REDIS_PORT=${REDIS_PORT}
+
+ redis:
+  image: redis:alpine
 
 
+!!!!! Docker Networking !!!!!
+Docker network allows containers to communicate with eact other.
+
+Check Networks
+Bash
+docker network ls 
+
+CMD : docker network ls
+NETWORK ID    NAME	DRIVER	  SCOPE
+0d0fbe	      bridge    bridge    local
+ac65d2	      host	host	  local
+5854a6	      none      null      local
+here default n/w of container in bridge
+
+-- BRIDGE NETWORK -- (default)
+CMD : docker network inspect bridge
+"Containers": {},
+
+CMD : docker run -it ubuntu
+CMD2: docker network inspect bridge
+
+"Containers": {
+   "e47f0": {
+      "Name": "great_einstein",
+      "EndpoitID": "64c2f",
+      "IPv4Address": "172.17.0.2/166"
+      "IPv6Address": ""
+    }
+}
+
+-- HOST NETWORK --
+CMD : docker run -it --network host ubuntu 
+CMD2: docker network inspect bridge     ...aka as of now only great_einstein is running on bridge
+CMD2: docker network inspect host
+
+"Containers": {
+   "2871c4": {
+      "Name": "jolly_austin",
+      "EndpoitID": "58cdd4",
+      "IPv4Address": ""
+      "IPv6Address": ""
+    }
+}
+
+
+CMD : docker run -it -e PORT=8000 virtual27/test-image
+^ injected env (0) from .env
+server started 8000
+
+https//localhost:8000
+This site can't be reached
+... aka as this is running on bridge n/w
+
+CMD : docker run -it -e PORT=8000 --network host virtual27/test-image
+^ injected env (0) from .env
+server started 8000
+
+https//localhost:8000
+{"message":"hello from docker 27"}
+
+-- NONE NETWORK --
+CMD : docker run -it -e PORT=8000 --network none -p 8000:8000 virtualcode27/test-image
+^ injected env (0) from .env
+server started 8000
+
+https//localhost:8000
+This site can't be reached
+... aka as this is running on none n/w
+
+-- CUSTOM NETWORK --
+
+CMD : docker network create ayush 
+880e88
+CMD : docker network ls
+NETWORK ID    NAME	DRIVER	  SCOPE
+6880e8        ayush     bridge    local
+0d0fbe	      bridge    bridge    local
+ac65d2	      host	host	  local
+5854a6	      none      null      local
+
+CMD : docker run -it -e PORT=8000 --network ayush virtualcode27/test-image
+^ injected env (0) from .env
+server started 8000
+
+CMD2: docker run -it -e PORT=7000 virtualcode27/test-image
+^ injected env (0) from .env
+server started 7000
+
+CMD3: docker exec -it focused_chaplygin bash
+root@d4439e:/app# curl http://strange_solomon:8000
+curl: (6) Could not resolve host: strange_solomon
+root@d4439e:/app# exit
+..aka this will work only if both are on same network
+
+-- TRY2 --
+CMD: docker run -it -e PORT=7000 --network ayush virtualcode2/test-image
+^ injected env (0) from .env
+server started 7000
+
+CMD2: docker ecec -it tender_cohen bash
+root@c87ba6:/app# curl http://strange_solomon:8000
+{"message":"hello from docker 27"}
+
+
+Docker Networking -------------------- in short
+Most Important Network Types
+
+Type		Purpose
+-------------   ---------------------
+bridge     	default local network
+host       	host machine network
+none       	no network
+custom bridge   custom communication
+
+Docker Networking Commands
+docker network ls	show networks
+docker network create   create network
+docker network inspect  network details
+docker network rm       remove network
+docker run --network    attach container
+
+
+!!!!! Docker Volumes !!!!!
+Docker volumes store data permanently outside containers
+so data remains safe even if containers are deleted or restarted.
+
+Type | Syntax | Data Kaha Save Hota Hai | Use Case | Example Command
+
+Bind Mount    -v "local-folder:container-folder     Local Machine	      Development	
+docker run -it -v "D:\project:/app" ubuntu
+
+Named Volume  -v volume-name:container-folder 	    Docker Internal Storage   Database Storage
+docker run -it -v mongo-data:/data/db mongo
+
+Example
+CMD : docker exec -it tender_cohen bash
+root@c87ba6:/app# curl http://strange_solomon:8000
+{"message":"hello from docker 27"}
+:/app# ls 
+db.js      models         package-lock.json   socket.js
+index.js   node_modules   package.json
+
+If we stop and remove the container .. all data is lost ..
+So to handle the container data, we have Docker Volumes
+
+-- Bind Mount --
+CMD : docker run -it -v "D:\docker volumes:/app/models" virtualcode27/test-image
+[+] D: > docker volumes
+^ injected env (0) from .env
+server started 5000
+
+CMD2: docker exec -it focused_brahmagupta bash
+root@7d2bbc:/app# ls
+db.js  index.js  models  node_modules  package-lock.json package.json  socket.js
+root@7d2bbc:/app# cd models
+root@7d2bbc:/app/models# ls
+root@7d2bbc:/app/models# mkdir user
+root@7d2bbc:/app/models# mkdir products
+  You will see similar folder is getting created on D:/docker volumes
+root@7d2bbc:/app/models# cd user
+root@7d2bbc:/app/models/user# touch user.js
+  user.js is created in D:/docker volumes/user/user.js
+
+-- Named Volume --
+CMD : docker run -it -v "ayush:/app/models" virtualcode27/test-image 
+^ injected env (0) from .env
+server started 5000
+
+On Docker desktop > Volumes > ayush --volume will be reflected 
+
+CMD2: docker exec -it festive_saha bash
+root@728c7c:/app# cd models
+root@728c7c:/app/models# mkdir user
+  Same will be reflected on Docker desktop > Volumes > ayush > user
+root@728c7c:/app/models# touch app.js
+  Same will be reflected on Docker desktop > Volumes > ayush > app.js
+
+
+
+---------------------------------------------------------------- Redis
+LEVEL2  |  redis
+
+⚡ Redis
+• API Caching
+• Rate Limiting
+• Message Queues
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+---------------------------------------------------------------- System Design
+🏗️ System Design
+• Scaling Concepts
+• Nginx
+• Microservices
+• Database Replication
+• Database Sharding
+
+☁️ AWS
+• Deployment
+• Production Architecture
+
+🤖 AI Engineering
+• LLM Fundamentals
+• LangChain
+• RAG (Retrieval Augmented Generation)
+• Vector Databases
 
 
 
