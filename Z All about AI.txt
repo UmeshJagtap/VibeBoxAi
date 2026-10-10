@@ -166,21 +166,22 @@ Create .env file
 
 -------------------------------------vv
 index.js
-import express from "express"
-import dotenv from 'dotenv"
-dotenv.config()
+import express from 'express';
+import dotenv from 'dotenv';
+dotenv.config();
 
-const port = process.env.PORT || 5000
+const port = process.env.PORT || 5000;
 
-const app = express()
+const app = express();
 
-app.get("/", (req, res) => {
-    return res.status(200).json({message: "hello from docker 2026"
-})
+app.get('/', (req, res) => {
+  return res.status(200).json({ message: 'hello from docker 2026' });
+});
 
 app.listen(port, () => {
-    console.log(`server started ${port}`)
-)}
+  console.log(`server started ${port}`);
+});
+
 -------------------------------------AA
 
 Terminal -> node index.js
@@ -753,7 +754,19 @@ Terminal
 ABC > cd level2
 ABC\level2> docker compose up
 
-Sam will be reflecting on Docker desktop
+Same will be reflecting on Docker desktop
+docker desktop > 
+Name	 ContainerID	Image	Ports	   Actions
+level2  
+ redis-1 db7a8d         redis   6379:6379  []
+
+http://localhost:6379
+This page isn't working
+...aka though page is not displayed, we can use redis.
+
+
+
+
 
 
 
