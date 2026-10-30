@@ -1,6 +1,7 @@
 AIR LLM  --https://github.com/lyogavin/airllm
 AirLLM dramatically reduces inference memory usage, letting 70B large language models run on a single 4GB GPU card
 
+https://github.com/FatihMakes/AI-Assistant-for-Computer
 
 FREE 32GB VRAM Server for Running AI Models Locally
 https://www.youtube.com/watch?v=tV4VJpnXbPs
@@ -68,8 +69,12 @@ https://www.youtube.com/watch?v=Kb-sw00KJ10
 Complete End To End AI Forward Deployed Engineer(FDE) Project Implementation
 https://www.youtube.com/watch?v=FSZhPDzESPU
 
+GenAI in 4+ Hours 🔥 | Complete Beginner’s Guide to LLMs, RAG & LangChain
+https://www.youtube.com/watch?v=Xq3ujEjZ2Pc
+
 Generative AI Full Course 2026 | LLMs, RAG, AI Agents & Projects | Sagar Chouksey
 https://www.youtube.com/watch?v=3iFMc6ELt7k
+
 
 ---------------------------------------------------------------- Docker Notes
 
